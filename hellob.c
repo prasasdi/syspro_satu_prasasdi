@@ -14,7 +14,7 @@ int determine_age(int year)
 
 int main(void)
 {
-	char nama[20]; // variabel pointer
+	char* nama[20]; // variabel pointer
 		       //
 	for (;;)
 	{

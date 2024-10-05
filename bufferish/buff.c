@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define BUFFER_SIZE 1024
+#define KB 1024
 
 int main(void)
 {
@@ -8,26 +8,29 @@ int main(void)
 	// todo; susur "string" / char
 	// todo; cek dalam susur tersebut selain numerik 0 - 9
 	
-	char* saus[BUFFER_SIZE];
+	char saus[10];
 
 	//char* current = *saus; // point ke "awal index"
 	// contoh input; a200 <- error input di charpos 1 (X)
 	
-	scanf("%s",saus);
-	for (int i = 0; i < BUFFER_SIZE; i++)
+	scanf("%[^\n]s",saus);
+	printf("Print numerik dari karakter\n");
+	for (int i = 0; i < KB; i++)
 	{
-		break;
+		/*
+		if (saus[i] == 0)
+		{
+			break;
+		}
+		*/
+		printf("%d ", saus[i]);
+		
 	}
 
-	printf("done, awal char %c\n", saus[0]);
+	//int a = saus[0]-'0';
+	printf("\n");
+	printf("done, awal char %d \n", saus[0]);
+	//printf("numerik %d",a);
 
-	if (saus[0] >= '0' && saus[0] <= '9')
-	{
-		printf("numerik");
-	}
-	else
-	{
-		printf("non-numerik");
-	}
 	return 0;
 }
