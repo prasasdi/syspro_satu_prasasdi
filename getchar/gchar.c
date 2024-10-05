@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void print_char(char c)
+void print_char(char* c)
 {
 	printf("print in char %c\n", &c);
 	printf("print in deci %d\n", &c);
@@ -33,9 +33,9 @@ int main(void)
 		printf("print dari c %d\n", c); //output: int 'a'
 		str_ln = 0;
 		while (c != EOF && c != 10){ //line feed
-			if (c >= '!' && c <= '~')
+			if (c >= ' ' && c <= '~')
 			{	
-				printf("print char %c || int %d", c, c);
+				//printf("print char %c || int %d", c, c);
 				str[str_ln] = (char)c;
 				str_ln++;
 			}
@@ -44,6 +44,7 @@ int main(void)
 
 			c = getchar();
 		}
+		str[str_ln] = '\0';
 		printf("inputed words > %s\n", str);
 	}
 	return 0;
