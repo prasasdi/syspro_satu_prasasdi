@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 int determine_age(int year)
 {
@@ -12,15 +13,18 @@ int determine_age(int year)
 	return 1900+current_y-year;
 }
 
+#define SZ 255
+
 int main(void)
 {
-	char* nama[20]; // variabel pointer
+	char nama[SZ]; // variabel pointer
 		       //
 	for (;;)
 	{
 		// nama
 		printf("Masukan nama : ");
-		scanf("%s", &nama);
+		fgets(nama,SZ,stdin);
+		getchar();
 		printf("Halo, %s\n", nama);
 		// umur
 		int umur;
@@ -74,7 +78,15 @@ int main(void)
 		{
 			return 0;
 		}
-
+		
+		//getchar(); //  consume dari buffer/stream per karakter dan mengembalikan numerik dari karakter and dispose -- ga ada left hand operand --
+/*
+#ifdef _WIN32
+		system("cls");
+#elif __linux__
+		system("clear");
+#endif
+*/
 
 	}
 

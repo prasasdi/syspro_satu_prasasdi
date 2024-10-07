@@ -5,6 +5,31 @@ void print_char(char* c)
 	printf("print in char %c\n", &c);
 	printf("print in deci %d\n", &c);
 }
+
+/// 0 ok -1 stop
+int gchar(char* source, int sz)
+{
+	int c;
+	c = getchar();
+	int str_ln = 0;
+
+	if(c<=0)
+	{
+		return -1;
+	}
+
+	while(c != EOF&& c != 10)
+	{
+		if (c >= ' ' && c <= '~')
+		{
+			source[str_ln] = (char)c;
+			str_ln++;
+		}
+		c = getchar();
+	}
+	source[str_ln] = '\0';
+	return 0;
+}
 /*
 void put_char(char* target, char c)
 {
@@ -15,38 +40,17 @@ void put_char(char* target, char c)
 int main(void)
 {
 	char str[SZ] = "";
-	int str_ln = 0;
+	
 	for(;;)
 	{
-
-		int c;
-
 		printf("input:\n");
-
-		c = getchar(); //input contoh; abc
-		if (c<=0) 
+		if (gchar(str,SZ) == -1)
 		{
-			// asumsi semua yang dibawah -1, return / exit appk
 			return 0;
 		}
-
-		printf("print dari c %d\n", c); //output: int 'a'
-		str_ln = 0;
-		while (c != EOF && c != 10){ //line feed
-			if (c >= ' ' && c <= '~')
-			{	
-				//printf("print char %c || int %d", c, c);
-				str[str_ln] = (char)c;
-				str_ln++;
-			}
-			
-			//int i = putchar(c);
-
-			c = getchar();
-		}
-		str[str_ln] = '\0';
-		printf("inputed words > %s\n", str);
+		printf("print output:\n%s\n", str);
 	}
+	
 	return 0;
 }
 
